@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { post, comment } = require('../../models');
+const { Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
     try {
-      const postData = await post.findAll({
-        include: [{ model: comment}],
+      const postData = await Post.findAll({
+        include: [{ model: Comment}],
       });
       res.status(200).json(postData);
     } catch (err) {
@@ -15,11 +15,11 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/', withAuth, async (req, res) => {
     try {
-      const postData = await post.findByPk(req.params.id, {
-        include: [{ model: comment}],
+      const postData = await Post.findByPk(req.params.id, {
+        include: [{ model: Comment}],
       });
 
-      if (!readerData) {
+      if (!postData) {
         res.status(404).json({ message: 'No post found with that id' });
         return;
       }
@@ -39,7 +39,7 @@ router.put('/', withAuth, async (req, res) => {
 
     console.log(newData);
 
-    const postData = await post.update(newData,
+    const postData = await Post.update(newData,
       {
         where: {
             book_id: req.params.book_id,
@@ -58,7 +58,7 @@ router.post('/', withAuth, async (req, res) => {
     user_id: req.body.user_id,
   };
   try {
-    const newPost = await post.create(newData);
+    const newPost = await Post.create(newData);
 
     res.status(200).json(newPost);
   } catch (err) {
@@ -68,7 +68,7 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const postData = await post.destroy({
+    const postData = await Post.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
