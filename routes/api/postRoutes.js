@@ -42,7 +42,7 @@ router.put('/', withAuth, async (req, res) => {
     const postData = await Post.update(newData,
       {
         where: {
-            book_id: req.params.book_id,
+            user_id: req.params.user_id,
         },
       });
     res.status(200).json(postData);

@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 
 router.get('/post/:id', async (req, res) => {
     try {
-      const postData = await post.findByPk(req.params.id, {
+      const postData = await Post.findByPk(req.params.id, {
         include: [{ model: Comment}, { model: User }],
       });
 
@@ -39,7 +39,7 @@ router.get('/post/:id', async (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
     console.log('profile:', req.session.user_id);
     try {
-      const userData = await user.findByPk(req.session.user_id, {
+      const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
         include: [{ model: Post }],
       });
