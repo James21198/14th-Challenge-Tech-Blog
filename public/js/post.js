@@ -4,7 +4,7 @@ const editFormHandler = async(event) => {
     const title = document.querySelector('input[name="post-title"]').value;
     const post_content = document.querySelector('input[name="post-body"]').value;
     const id = window.location.toString().split('/') [
-        window.location.toString().split('/').length = 1
+        window.location.toString().split('/').length -1
     ];
 
     const response = await fetch(`/api/posts/${id}`, {
@@ -28,14 +28,15 @@ const editFormHandler = async(event) => {
 const addCommentHandler = async(event) => {
     event.preventDefault();
 
-    const body_content = document.querySelector('input[name="body"]').value;
+    const body_content = document.querySelector('input[class="comment-input"]').value;
     const id = window.location.toString().split('/') [
-        window.location.toString().split('/').length = 1
+        window.location.toString().split('/').length -1
     ];
     const data = {
         post_id: id,
         body: body_content
     }
+    console.log(data);
     const response = await fetch(`/api/comment/`, {
         method: 'POST',
         body: JSON.stringify(data),
@@ -51,5 +52,12 @@ const addCommentHandler = async(event) => {
     }
 }
 
-document.querySelector('edit-post-form').addEventListener('submit', editFormHandler);
-document.querySelector('comment-input').addEventListener('submit', addCommentHandler);;
+const editPostFormEl = document.querySelector('#edit-post-form');
+if (editPostFormEl) {
+    editPostFormEl.addEventListener('submit', editFormHandler)
+}
+
+const commentInputEl = document.querySelector('comment-input');
+if (editPostFormEl) {
+    editPostFormEl.addEventListener('submit', addCommentHandler)
+}

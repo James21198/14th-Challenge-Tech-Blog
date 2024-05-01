@@ -36,7 +36,7 @@ router.get('/post/:id', async (req, res) => {
     }
 });
 
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     console.log('profile:', req.session.user_id);
     try {
       const userData = await User.findByPk(req.session.user_id, {
