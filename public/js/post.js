@@ -19,7 +19,7 @@ const editFormHandler = async(event) => {
     });
 
     if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/profile/');
     } else {
         alert(response.statusText);
     }
@@ -46,7 +46,7 @@ const addCommentHandler = async(event) => {
     });
 
     if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/profile/');
     } else {
         alert(response.statusText);
     }
