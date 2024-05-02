@@ -57,7 +57,7 @@ if (editPostFormEl) {
     editPostFormEl.addEventListener('submit', editFormHandler)
 }
 
-const commentInputEl = document.querySelector('comment-input');
-if (editPostFormEl) {
-    editPostFormEl.addEventListener('submit', addCommentHandler)
+const commentInputEl = document.querySelector('#edit-comment-form');
+if (commentInputEl) {
+    commentInputEl.addEventListener('submit', addCommentHandler)
 }
