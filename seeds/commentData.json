@@ -1,23 +1,30 @@
 [
     {
-        "body": "Incredible Article!"
+        "body": "Incredible Article!",
+        "user_id": 1
     },
     {
-        "body": "Great Work!"
+        "body": "Great Work!",
+        "user_id": 1
     },
     {
-        "body": "Loving This!"
+        "body": "Loving This!",
+        "user_id": 1
     },
     {
-        "body": "I Never Knew That!"
+        "body": "I Never Knew That!",
+        "user_id": 2
     },
     {
-        "body": "I Cant Believe This!"
+        "body": "I Cant Believe This!",
+        "user_id": 2
     },
     {
-        "body": "Really?"
+        "body": "Really?",
+        "user_id": 3
     },
     {
-        "body": "Best Work Yet!"
+        "body": "Best Work Yet!",
+        "user_id": 3
     }
 ]

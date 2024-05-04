@@ -46,7 +46,7 @@ const addCommentHandler = async(event) => {
     });
 
     if (response.ok) {
-        document.location.replace('/profile/');
+        document.location.reload();
     } else {
         alert(response.statusText);
     }

@@ -13,6 +13,13 @@
       <input type="submit" class="btn btn-sm btn-danger"></input>
     </form>
   </main>
+  <h2 class="text-center">Comments</h2>
+  {{#each comments as |comment|}}
+      <div class="comments text-center">
+        <p class="body">{{body}}</p>
+        <p class="author">Posted by: {{user.name}}</p>
+      </div>
+  {{/each}}
 </div>
 
 <script src="/js/post.js"></script>
